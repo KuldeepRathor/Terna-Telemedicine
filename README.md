@@ -1,16 +1,24 @@
-# terna_telemedicine
+<h1 align="center">Welcome to Terna-Telemedicine 👋</h1>
+<p>
+  <a href="https://twitter.com/KuldeepRR" target="_blank">
+    <img alt="Twitter: KuldeepRR" src="https://img.shields.io/twitter/follow/KuldeepRR.svg?style=social" />
+  </a>
+</p>
 
-Terna Telemedicine is an application developed for Terna Hospital proctoring purposes.
+> Terna Telemedicine is an application developed for Terna Hospital proctoring purposes.
 
-## Getting Started
+## Author
 
-This project is a starting point for a Flutter application.
+👤 **Kuldeep Rathor**
 
-A few resources to get you started if this is your first Flutter project:
+* Website: https://portfolio-website-red-xi.vercel.app/#/
+* Twitter: [@KuldeepRR](https://twitter.com/KuldeepRR)
+* Github: [@KuldeepRathor](https://github.com/KuldeepRathor)
+* LinkedIn: [@kuldeep-rathor](https://linkedin.com/in/kuldeep-rathor)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Show your support
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Give a ⭐️ if this project helped you!
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
