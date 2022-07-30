@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:terna_telemedicine/nav_bar/bottomnavbar.dart';
 import 'package:terna_telemedicine/screens/homepage.dart';
+import 'package:terna_telemedicine/screens/onboarding_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      home: OnBoardingPage(),
     );
   }
 }
