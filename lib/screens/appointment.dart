@@ -5,8 +5,13 @@ class Appointment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Container(
-      child: Text('Appointment'),
-    ));
+    return Scaffold(
+      backgroundColor: Color(0xffF3F6F9),
+      body: Center(
+        child: Container(
+          child: Text('Appointment'),
+        ),
+      ),
+    );
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 
 import '../components/doctorscard.dart';
 
@@ -10,14 +9,20 @@ class Tag extends StatefulWidget {
   State<Tag> createState() => _TagState();
 }
 
-class _TagState extends State<Tag>
-    with SingleTickerProviderStateMixin{
+class _TagState extends State<Tag> with SingleTickerProviderStateMixin {
   TabController? _tabcontroller;
+
   @override
-  void initState(){
+  void initState() {
     super.initState();
-    _tabcontroller=TabController(length: 3, vsync: this);
+    _tabcontroller = TabController(length: 3, vsync: this);
   }
+
+  // Icon(
+  // Icons.arrow_back_ios,
+  // color: Colors.blue,
+  //
+  // ),
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
@@ -25,11 +30,25 @@ class _TagState extends State<Tag>
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        leading:Icon(Icons.arrow_back_ios,color: Colors.blue,) ,
-        centerTitle: true,
-        title:Text('Cardiologist',style: TextStyle(
-            fontWeight: FontWeight.bold,fontSize: 20,color: Colors.black
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(
+                Icons.arrow_back_ios,
+                color: Colors.blue,
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              tooltip: MaterialLocalizations.of(context).backButtonTooltip,
+            );
+          },
         ),
+        centerTitle: true,
+        title: Text(
+          'Doctors',
+          style: TextStyle(
+              fontWeight: FontWeight.bold, fontSize: 20, color: Colors.black),
         ),
       ),
       body: Container(
@@ -44,9 +63,10 @@ class _TagState extends State<Tag>
                     color: Colors.blue),
                 controller: _tabcontroller,
                 isScrollable: true,
-                tabs:[ Tab(
-                  child: Text('Cardiologist'),
-                ),
+                tabs: [
+                  Tab(
+                    child: Text('Cardiologist'),
+                  ),
                   Tab(
                     child: Text('Psychiatrist'),
                   ),
@@ -55,22 +75,15 @@ class _TagState extends State<Tag>
                   )
                 ]),
             Expanded(
-              child: TabBarView(
-                  controller: _tabcontroller,
-                  children: [
-                    DoctorCard(),
-                    DoctorCard(),
-                    DoctorCard(),
-                  ]),
+              child: TabBarView(controller: _tabcontroller, children: [
+                DoctorCard(),
+                DoctorCard(),
+                DoctorCard(),
+              ]),
             )
-
-
           ],
         ),
       ),
     );
   }
 }
-
-
-

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+
 class Ratings extends StatefulWidget {
   const Ratings({Key? key}) : super(key: key);
 
@@ -8,7 +9,8 @@ class Ratings extends StatefulWidget {
 }
 
 class _RatingsState extends State<Ratings> {
-  double rating =0;
+  double rating = 0;
+
   @override
   Widget build(BuildContext context) {
     return RatingBar.builder(

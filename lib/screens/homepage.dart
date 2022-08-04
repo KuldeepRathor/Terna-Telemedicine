@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:terna_telemedicine/components/available_doctors.dart';
-import 'package:terna_telemedicine/components/searchbar.dart';
-
-import '../components/custom_appbar.dart';
-import '../components/doctor_slider.dart';
-import '../components/specialist.dart';
+import 'package:terna_telemedicine/components/homepage/available_doctors.dart';
+import '../components/homepage/custom_appbar.dart';
+import '../components/homepage/doctor_slider.dart';
+import '../components/homepage/searchbar.dart';
+import '../components/homepage/specialist.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -13,13 +12,14 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color(0xffF3F6F9),
+        backgroundColor: Color(0xffF3F6F9),
         body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
           physics: const BouncingScrollPhysics(),
           child: Column(
             children: const [
               SizedBox(
-                height: 50,
+                height: 0,
               ),
               CustomAppbar(),
               SearchBar(),

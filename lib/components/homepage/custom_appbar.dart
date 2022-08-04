@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../constants/user_details.dart';
-import '../constants/user_details.dart';
 
 class CustomAppbar extends StatelessWidget {
   const CustomAppbar({Key? key}) : super(key: key);
@@ -16,13 +14,14 @@ class CustomAppbar extends StatelessWidget {
           Row(
             children: [
               CircleAvatar(
-                backgroundColor: Colors.black,
+                backgroundImage:
+                    ExactAssetImage('assets/images/Image Place Holder.png'),
               ),
               SizedBox(
                 width: 10,
               ),
               Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     'Kuldeep Rathor',

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import '../screens/doctors.dart';
+
+import '../../screens/doctors.dart';
+
 class Specialist extends StatelessWidget {
   const Specialist({Key? key}) : super(key: key);
 
@@ -26,8 +28,8 @@ class Specialist extends StatelessWidget {
           ),
         ),
         InkWell(
-          onTap:() => Navigator.push(context,
-              MaterialPageRoute(builder: (context) => Doc())),
+          onTap: () => Navigator.push(
+              context, MaterialPageRoute(builder: (context) => Doc())),
           child: SizedBox(
             height: 190,
             child: SingleChildScrollView(

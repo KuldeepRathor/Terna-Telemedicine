@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:terna_telemedicine/components/authorization/welcomepage.dart';
 
 import '../nav_bar/bottomnavbar.dart';
 
@@ -14,7 +15,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
   void _onIntroEnd(context) {
     Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => BottomNavBar()),
+      MaterialPageRoute(builder: (_) => WelcomePage()),
     );
   }
 
@@ -60,7 +61,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
         PageViewModel(
           title: "Quality reputation",
           body:
-          "The team of reputable doctors has many years of professional experience.",
+              "The team of reputable doctors has many years of professional experience.",
           image: _buildImage('img1.png'),
           decoration: pageDecoration,
         ),
@@ -73,7 +74,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
         PageViewModel(
           title: "Keep your health test in one place",
           body:
-          "Ensure the most accurate results for the health of you and your family.",
+              "Ensure the most accurate results for the health of you and your family.",
           image: _buildImage('img3.png'),
           decoration: pageDecoration,
         ),

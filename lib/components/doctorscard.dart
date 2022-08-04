@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../screens/info.dart';
 import '../components/star_rating.dart';
+
 class DoctorCard extends StatefulWidget {
   const DoctorCard({Key? key}) : super(key: key);
 
@@ -23,52 +24,50 @@ class _DoctorCardState extends State<DoctorCard> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Text(
+                    Name,
+                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+                  ),
+                  Text(
+                    specialization,
+                    style: TextStyle(fontSize: 12),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Ratings(),
+                  SizedBox(height: 15),
+                  Row(
                     children: [
-                      Text(Name, style: TextStyle(
-                          fontWeight: FontWeight.w700, fontSize: 18
-                      ),),
-                      Text(specialization, style: TextStyle(
-                          fontSize: 12
-                      ),),
-                      SizedBox(
-                        height: 5,
+                      Icon(
+                        CupertinoIcons.calendar_badge_plus,
+                        color: Colors.green,
                       ),
-                      Ratings(),
-                      SizedBox(height: 15),
-                      Row(
-                        children: [
-                          Icon(CupertinoIcons.calendar_badge_plus,
-                            color: Colors.green,),
-                          Text(time)
-
-                        ],
-                      )
-                    ]
-
-                ),
+                      Text(time)
+                    ],
+                  )
+                ]),
                 CircleAvatar(radius: 35),
               ],
-
             ),
           ),
-
         ),
-        onTap: () =>
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => INFO())),
+        onTap: () => Navigator.push(
+            context, MaterialPageRoute(builder: (context) => INFO())),
       ),
-
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
-        child: ListView.builder(itemBuilder: (context,index)
-    {
-      return createcard('Dr. Jamie C. Davies', 'Medicine & Heart specialist', '11:45AM-4:00PM');
-    }));
+      child: ListView.builder(
+        itemBuilder: (context, index) {
+          return createcard('Dr. Jamie C. Davies',
+              'Medicine & Heart specialist', '11:45AM-4:00PM');
+        },
+      ),
+    );
   }
 }
