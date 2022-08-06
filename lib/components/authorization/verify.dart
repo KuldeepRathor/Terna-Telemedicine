@@ -40,16 +40,34 @@ class VerificationPage extends StatelessWidget {
                 height: size.height * 0.1,
               ),
               Form(
-                  child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Otpform(),
-                  Otpform(),
-                  Otpform(),
-                  Otpform(),
-                ],
-              ))
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Otpform(),
+                    Otpform(),
+                    Otpform(),
+                    Otpform(),
+                  ],
+                ),
+              ),
             ],
+          ),
+        ),
+        bottomSheet: Padding(
+          padding: const EdgeInsets.all(25.0),
+          child: ElevatedButton(
+            onPressed: () {},
+            child: Text(
+              'Next',
+              style: TextStyle(fontSize: 20),
+            ),
+            style: ElevatedButton.styleFrom(
+              primary: Color(0xff0065FF),
+              fixedSize: const Size(400, 60),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(50),
+              ),
+            ),
           ),
         ),
       ),
@@ -76,9 +94,9 @@ class Otpform extends StatelessWidget {
         },
         onSaved: (pin1) {},
         decoration: InputDecoration(
-          // hintText: "0",
-          // hintStyle: TextStyle(color: Colors.grey),
-        ),
+            // hintText: "0",
+            // hintStyle: TextStyle(color: Colors.grey),
+            ),
         style: Theme.of(context).textTheme.headline6,
         keyboardType: TextInputType.number,
         textAlign: TextAlign.center,

@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:terna_telemedicine/components/authorization/verify.dart';
-import 'package:terna_telemedicine/nav_bar/bottomnavbar.dart';
 
 class RegistrationPage extends StatefulWidget {
   @override
@@ -10,6 +10,16 @@ class RegistrationPage extends StatefulWidget {
 }
 
 class _RegistrationPageState extends State<RegistrationPage> {
+  TextEditingController phonecontroller = TextEditingController();
+  TextEditingController namecontroller = TextEditingController();
+  TextEditingController otpcontroller = TextEditingController();
+
+  FirebaseAuth auth = FirebaseAuth.instance;
+
+  String verificationIDReceived = "";
+
+  bool otpCodeVisible = false;
+
   Color getColor(Set<MaterialState> states) {
     const Set<MaterialState> interactiveStates = <MaterialState>{
       MaterialState.pressed,
@@ -88,6 +98,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                       height: size.height * 0.01,
                     ),
                     TextFormField(
+                      controller: namecontroller,
                       decoration: InputDecoration(
                         // fillColor: Colors.grey.shade300,
                         filled: true,
@@ -111,6 +122,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
                       height: size.height * 0.01,
                     ),
                     TextFormField(
+                      controller: phonecontroller,
+                      keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
                         // fillColor: Colors.grey.shade300,
                         filled: true,
@@ -145,36 +158,69 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: size.height * 0.05,
-                    ),
-                    Center(
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => VerificationPage()));
-                        },
-                        child: Container(
-                          width: size.width,
-                          height: size.height * 0.06,
-                          decoration: // ignore: prefer_const_constructors
-                              BoxDecoration(
-                            color: Color(0xff0065FF),
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Center(
-                            child: Text(
-                              'Next',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
+                    Visibility(
+                      visible: otpCodeVisible,
+                      child: TextFormField(
+                        controller: otpcontroller,
+                        decoration: InputDecoration(
+                          // fillColor: Colors.grey.shade300,
+                          filled: true,
+                          hintText: "Enter otp",
+                          prefixIcon: Icon(Icons.password),
+                          hintStyle: const TextStyle(color: Colors.grey),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                            borderSide: const BorderSide(
+                              color: Colors.black,
+                              width: 2,
                             ),
                           ),
                         ),
+                      ),
+                    ),
+                    // SizedBox(
+                    //   height: size.height * 0.05,
+                    // ),
+                    // Center(
+                    //   child: InkWell(
+                    //     onTap: () {
+                    //       verifyNumber();
+                    //       // Navigator.push(
+                    //       //     context,
+                    //       //     MaterialPageRoute(
+                    //       //         builder: (context) => VerificationPage()));
+                    //     },
+                    //     child: Container(
+                    //       width: size.width,
+                    //       height: size.height * 0.06,
+                    //       decoration: // ignore: prefer_const_constructors
+                    //           BoxDecoration(
+                    //         color: Color(0xff0065FF),
+                    //         borderRadius: BorderRadius.circular(20),
+                    //       ),
+                    //       child: Center(
+                    //         child: Text(
+                    //           'Next',
+                    //           style: TextStyle(
+                    //             color: Colors.white,
+                    //             fontSize: 20,
+                    //             fontWeight: FontWeight.bold,
+                    //           ),
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
+                    Center(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          if (otpCodeVisible) {
+                            verifyNumber();
+                          } else {
+                            verifyCode();
+                          }
+                        },
+                        child: Text(otpCodeVisible ? "Login" : "Verify"),
                       ),
                     ),
                   ],
@@ -185,5 +231,33 @@ class _RegistrationPageState extends State<RegistrationPage> {
         ),
       ),
     );
+  }
+
+  void verifyNumber() {
+    auth.verifyPhoneNumber(
+      phoneNumber: phonecontroller.text,
+      verificationCompleted: (PhoneAuthCredential credential) async {
+        await auth.signInWithCredential(credential).then((value) => {
+              print("You are logged in successfully"),
+            });
+      },
+      verificationFailed: (FirebaseAuthException exception) {
+        print(exception.message);
+      },
+      codeSent: (String verificationID, int? resendToken) {
+        verificationIDReceived = verificationID;
+        otpCodeVisible = true;
+        setState(() {});
+      },
+      codeAutoRetrievalTimeout: (String verificationID) {},
+    );
+  }
+
+  void verifyCode() async {
+    PhoneAuthCredential credential = PhoneAuthProvider.credential(
+        verificationId: verificationIDReceived, smsCode: otpcontroller.text);
+    await auth.signInWithCredential(credential).then((value) {
+      print('You are logged in successfully');
+    });
   }
 }

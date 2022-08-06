@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "657881979290",
+    "project_id": "terna-telemedicine-test",
+    "storage_bucket": "terna-telemedicine-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:657881979290:android:4e713e4d6b7b07a41e4223",
+        "android_client_info": {
+          "package_name": "com.example.terna_telemedicine"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "657881979290-6ds37i95bgdo60pv1al6lq4d2siqffdf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC642uGdlMYfmzNnTvhbgvhh4MClds5j5Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "657881979290-6ds37i95bgdo60pv1al6lq4d2siqffdf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "657881979290-4jusdlsdni9ets9pbpse9cmoaq6oeav4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ternaTelemedicine"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:657881979290:android:aeb7f526715d3ce01e4223",
+        "android_client_info": {
+          "package_name": "com.example.terna_telemedicine_user"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "657881979290-eai4e4h6g79j686mdsmni6p549h6fjpt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.terna_telemedicine_user",
+            "certificate_hash": "0801cd7bc39dd0887100b011b4b010c15bdfbd6c"
+          }
+        },
+        {
+          "client_id": "657881979290-6ds37i95bgdo60pv1al6lq4d2siqffdf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC642uGdlMYfmzNnTvhbgvhh4MClds5j5Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "657881979290-6ds37i95bgdo60pv1al6lq4d2siqffdf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "657881979290-4jusdlsdni9ets9pbpse9cmoaq6oeav4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ternaTelemedicine"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
