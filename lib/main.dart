@@ -1,6 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:terna_telemedicine/screens/onboarding_screen.dart';
+
+import 'nav_bar/bottomnavbar.dart';
+
 //
 // void main() {
 //   runApp(const MyApp());
@@ -8,8 +12,8 @@ import 'package:terna_telemedicine/screens/onboarding_screen.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    // options: DefaultFirebaseOptions.currentPlatform,
-  );
+      // options: DefaultFirebaseOptions.currentPlatform,
+      );
   runApp(MyApp());
 }
 
@@ -24,7 +28,17 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: OnBoardingPage(),
+      home: StreamBuilder(
+          stream: FirebaseAuth.instance.authStateChanges(),
+          builder: (context, snaphsot) {
+            if (snaphsot.hasData) {
+              print("the user is ${snaphsot.data}");
+
+              return BottomNavBar();
+            } else {
+              return OnBoardingPage();
+            }
+          }),
     );
   }
 }

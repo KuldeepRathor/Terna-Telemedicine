@@ -21,7 +21,7 @@ class NameSurname extends StatelessWidget {
             children: [
               const CircleAvatar(
                 backgroundImage:
-                    ExactAssetImage('assets/images/Image Place Holder.png'),
+                    ExactAssetImage('assets/images/placeholder.png'),
                 radius: 40,
                 // backgroundColor: Colors.black,
               ),

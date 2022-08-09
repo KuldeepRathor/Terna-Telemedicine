@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class CustomAppbar extends StatelessWidget {
   const CustomAppbar({Key? key}) : super(key: key);
 
@@ -15,7 +14,7 @@ class CustomAppbar extends StatelessWidget {
             children: [
               CircleAvatar(
                 backgroundImage:
-                    ExactAssetImage('assets/images/Image Place Holder.png'),
+                    ExactAssetImage('assets/images/placeholder.png'),
               ),
               SizedBox(
                 width: 10,

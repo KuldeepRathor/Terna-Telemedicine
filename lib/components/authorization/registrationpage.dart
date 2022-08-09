@@ -1,8 +1,14 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:terna_telemedicine/components/authorization/verify.dart';
+import 'package:terna_telemedicine/screens/homepage.dart';
+
+import '../../nav_bar/bottomnavbar.dart';
 
 class RegistrationPage extends StatefulWidget {
   @override
@@ -33,6 +39,34 @@ class _RegistrationPageState extends State<RegistrationPage> {
   }
 
   bool value = false;
+
+  late Timer _timer;
+  int _start = 60;
+
+  void startTimer() {
+    const oneSec = Duration(seconds: 1);
+    _timer = Timer.periodic(
+      oneSec,
+      (Timer timer) {
+        if (_start == 0) {
+          setState(() {
+            timer.cancel();
+          });
+        } else {
+          setState(() {
+            _start--;
+          });
+        }
+      },
+    );
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    _timer.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -124,6 +158,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     TextFormField(
                       controller: phonecontroller,
                       keyboardType: TextInputType.phone,
+                      maxLength: 10,
                       decoration: InputDecoration(
                         // fillColor: Colors.grey.shade300,
                         filled: true,
@@ -146,9 +181,9 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           fillColor:
                               MaterialStateProperty.resolveWith(getColor),
                           value: value,
-                          onChanged: (bool? value) {
+                          onChanged: (bool? newvalue) {
                             setState(() {
-                              value = value!;
+                              value = newvalue!;
                             });
                           },
                         ),
@@ -211,14 +246,33 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     //     ),
                     //   ),
                     // ),
+
+                    Visibility(
+                      visible: otpCodeVisible,
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            _start.toString(),
+                            style: TextStyle(
+                              color: Colors.green,
+                              fontSize: 22,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                     Center(
                       child: ElevatedButton(
                         onPressed: () {
-                          if (otpCodeVisible) {
+                          if (otpCodeVisible == false) {
+                            print("verify Number function is called");
                             verifyNumber();
                           } else {
+                            print("verify otp function is called");
                             verifyCode();
                           }
+                          // verifyNumber();
                         },
                         child: Text(otpCodeVisible ? "Login" : "Verify"),
                       ),
@@ -235,19 +289,27 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
   void verifyNumber() {
     auth.verifyPhoneNumber(
-      phoneNumber: phonecontroller.text,
+      phoneNumber: "+91${phonecontroller.text.trim()}",
+      timeout: const Duration(seconds: 60),
       verificationCompleted: (PhoneAuthCredential credential) async {
         await auth.signInWithCredential(credential).then((value) => {
               print("You are logged in successfully"),
+              Navigator.pushReplacement(
+                  context,
+                  CupertinoPageRoute(
+                    builder: (context) => BottomNavBar(),
+                  ))
             });
       },
       verificationFailed: (FirebaseAuthException exception) {
-        print(exception.message);
+        print("The error is ${exception.message}");
       },
       codeSent: (String verificationID, int? resendToken) {
-        verificationIDReceived = verificationID;
-        otpCodeVisible = true;
-        setState(() {});
+        setState(() {
+          verificationIDReceived = verificationID;
+          otpCodeVisible = true;
+          startTimer();
+        });
       },
       codeAutoRetrievalTimeout: (String verificationID) {},
     );
@@ -255,9 +317,16 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
   void verifyCode() async {
     PhoneAuthCredential credential = PhoneAuthProvider.credential(
-        verificationId: verificationIDReceived, smsCode: otpcontroller.text);
+      verificationId: verificationIDReceived,
+      smsCode: otpcontroller.text.trim(),
+    );
     await auth.signInWithCredential(credential).then((value) {
       print('You are logged in successfully');
+      Navigator.pushReplacement(
+          context,
+          CupertinoPageRoute(
+            builder: (context) => BottomNavBar(),
+          ));
     });
   }
 }

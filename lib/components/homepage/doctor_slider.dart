@@ -18,8 +18,8 @@ class DoctorSlider extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Color(0xff2D4EF5),
                 image: DecorationImage(
-                  image: AssetImage("assets/images/$i.jpg"),
-                  fit: BoxFit.cover,
+                  image: AssetImage("assets/images/$i.png"),
+                  fit: BoxFit.contain,
                 ),
                 borderRadius: BorderRadius.circular(20),
               ),

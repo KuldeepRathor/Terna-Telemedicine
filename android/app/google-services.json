@@ -1,3 +1,5 @@
+
+
 {
   "project_info": {
     "project_number": "657881979290",
@@ -50,11 +52,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "657881979290-eai4e4h6g79j686mdsmni6p549h6fjpt.apps.googleusercontent.com",
+          "client_id": "657881979290-3ipb1dankvho4okdktr9mc7qflcvhjao.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.terna_telemedicine_user",
-            "certificate_hash": "0801cd7bc39dd0887100b011b4b010c15bdfbd6c"
+            "certificate_hash": "dc61b2b3101a42bda8716ed1182032acd4c90900"
           }
         },
         {
