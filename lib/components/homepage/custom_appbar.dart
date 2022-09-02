@@ -14,7 +14,7 @@ class CustomAppbar extends StatelessWidget {
             children: [
               CircleAvatar(
                 backgroundImage:
-                    ExactAssetImage('assets/images/placeholder.png'),
+                ExactAssetImage('assets/images/placeholder.png'),
               ),
               SizedBox(
                 width: 10,
@@ -30,8 +30,7 @@ class CustomAppbar extends StatelessWidget {
                     ),
                   ),
                   Text('Find your suitable Doctor Here'),
-                ],
-              ),
+                ],),
             ],
           ),
           Icon(

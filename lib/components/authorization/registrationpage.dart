@@ -5,8 +5,6 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:terna_telemedicine/components/authorization/verify.dart';
-import 'package:terna_telemedicine/screens/homepage.dart';
 
 import '../../nav_bar/bottomnavbar.dart';
 

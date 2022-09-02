@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:terna_telemedicine/components/profilepage/edit_profile.dart';
 
 class NameSurname extends StatelessWidget {
   const NameSurname({Key? key}) : super(key: key);
@@ -52,7 +53,12 @@ class NameSurname extends StatelessWidget {
               SizedBox(
                 width: 1,
               ),
-              Icon(Icons.edit),
+              InkWell(
+                onTap: () {
+                  EditProfile();
+                },
+                child: Icon(Icons.edit,),
+              ),
             ],
           ),
         ),

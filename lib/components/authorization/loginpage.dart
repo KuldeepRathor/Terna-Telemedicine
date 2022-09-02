@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 import 'package:terna_telemedicine/nav_bar/bottomnavbar.dart';
@@ -148,9 +148,11 @@ class _LoginPageState extends State<LoginPage> {
                       child: InkWell(
                         onTap: () {
                           Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => BottomNavBar()));
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => BottomNavBar(),
+                            ),
+                          );
                         },
                         child: Container(
                           width: size.width,
@@ -185,9 +187,9 @@ class _LoginPageState extends State<LoginPage> {
                           style: TextStyle(
                             color: Color(0xff0065FF),
                           ),
-                        )
+                        ),
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),

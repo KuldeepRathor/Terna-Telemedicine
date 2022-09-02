@@ -5,12 +5,21 @@ class Blogs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xffF3F6F9),
-      body: Center(
-        child: Container(
-          child: Text(
-            'Blogs',
+    return SafeArea(
+      child: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.all(18.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Text(
+                'Blogs',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                ),
+              )
+            ],
           ),
         ),
       ),
