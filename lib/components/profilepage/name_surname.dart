@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:terna_telemedicine/components/profilepage/edit_profile.dart';
+//import 'package:terna_telemedicine/components/profilepage/edit_profile.dart';
 
 class NameSurname extends StatelessWidget {
   const NameSurname({Key? key}) : super(key: key);

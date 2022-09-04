@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:terna_telemedicine/components/profilepage/edit_profile.dart';
+//import 'package:terna_telemedicine/components/profilepage/edit_profile.dart';
 import 'package:terna_telemedicine/screens/Blogs.dart';
 import 'package:terna_telemedicine/screens/appointment.dart';
 import 'package:terna_telemedicine/screens/homepage.dart';
@@ -33,7 +33,7 @@ class _ExampleState extends State<BottomNavBar> {
     HomePage(),
     Appointment(),
     Blogs(),
-    EditProfile(),
+    //EditProfile(),
   ];
 
   @override
@@ -63,7 +63,7 @@ class _ExampleState extends State<BottomNavBar> {
             child: GNav(
               rippleColor: Colors.grey[300]!,
               hoverColor: Colors.grey[100]!,
-              gap: 8,
+              gap:8,
               activeColor: Color(0xff2D4EF5),
               iconSize: 24,
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),

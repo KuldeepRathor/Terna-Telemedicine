@@ -92,12 +92,12 @@ class _INFOState extends State<INFO> {
                         child: Text('hi'),
                       ),
 
-                      //   ListTile(title: Text('patients')
-                      //     ,subtitle: Text('1.08k'),),
-                      // //   ListTile(title: Text('patients')
-                      // //     ,subtitle: Text('1.08k'),),
-                      // //   ListTile(title: Text('patients')
-                      // //     ,subtitle: Text('1.08k'),),
+                        // ListTile(title: Text('patients')
+                        //   ,subtitle: Text('1.08k'),),
+                        //  ListTile(title: Text('patients')
+                        //   ,subtitle: Text('1.08k'),),
+                        //  ListTile(title: Text('patients')
+                        //   ,subtitle: Text('1.08k'),),
                     ],
                   ),
                   Text('Reviews'),
