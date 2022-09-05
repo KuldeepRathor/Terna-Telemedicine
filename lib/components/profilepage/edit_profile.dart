@@ -3,6 +3,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icon.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 import 'package:terna_telemedicine/components/profilepage/popupimageeditor.dart';
 
 class EditProfile extends StatefulWidget {
@@ -13,6 +15,13 @@ class EditProfile extends StatefulWidget {
 }
 
 class _EditProfileState extends State<EditProfile> {
+  File? image;
+  Future pickImage(ImageSource source) async {
+    final image = await ImagePicker().pickImage(source: source);
+    if (image == null) return;
+    final imageTem = File(image.path);
+    setState(() => this.image = imageTem);
+  }
   DateTime date = DateTime(2022, 9, 2);
 
   @override
@@ -42,7 +51,9 @@ class _EditProfileState extends State<EditProfile> {
                     Center(
                       child: Column(
                         children: [
-                          CircleAvatar(
+                          image!=null
+                              ? ClipOval(child: Image.file(image!,width:110,height: 110,fit: BoxFit.cover,))
+                              :CircleAvatar(
                             radius: 55,
                             backgroundImage: ExactAssetImage(
                                 'assets/images/placeholder.png'),
@@ -51,10 +62,45 @@ class _EditProfileState extends State<EditProfile> {
                             height: size.height * 0.02,
                           ),
                           InkWell(
-                            onTap: () => Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => PopupImageEditor())),
+                            onTap: () {showModalBottomSheet(
+                              context: context,
+                              builder: (context) {
+                                return  Container(
+                                  height: 150,
+                                  child: Column(
+                                    children: [
+                                      ElevatedButton.icon(
+                                          onPressed: () => pickImage(ImageSource.camera),
+                                          icon: Icon(Icons.camera_alt_outlined),
+                                          label: Text('Click a photo'),
+                                          style: ElevatedButton.styleFrom(
+                                            backgroundColor: Colors.blueAccent,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.circular(
+                                                20,
+                                              ),
+                                            ),
+                                          )),
+                                      ElevatedButton.icon(
+                                          onPressed: () => pickImage(ImageSource.gallery),
+                                          icon: Icon(Icons.file_copy_sharp),
+                                          label: Text('Gallery'),
+                                          style: ElevatedButton.styleFrom(
+                                            backgroundColor: Colors.blueAccent,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.circular(
+                                                20,
+                                              ),
+                                            ),
+                                          )),
+                                      //ElevatedButton.icon(onPressed: () {}, icon: Icon(Icons.remove_circle_outline), label: Text('Remove profile photo'))
+                                    ],
+                                  ),
+                                );
+
+                              },
+                            );
+                            },
                             child: Text(
                               'Upload Profile Picture',
                               style: TextStyle(
@@ -143,7 +189,7 @@ class _EditProfileState extends State<EditProfile> {
                               padding: const EdgeInsets.all(8.0),
                               child: Row(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     '${date.year}/${date.month}/${date.day}',
