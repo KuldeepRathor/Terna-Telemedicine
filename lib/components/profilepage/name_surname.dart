@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import 'edit_profile.dart';
 //import 'package:terna_telemedicine/components/profilepage/edit_profile.dart';
 
 class NameSurname extends StatelessWidget {

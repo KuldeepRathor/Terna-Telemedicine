@@ -59,10 +59,59 @@ class AvailableDoctors extends StatelessWidget {
                         ), //BoxShadow
                       ],
                     ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Dr.Jose A. Breaux',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20),
+                          ),
+                          Text(
+                            'Medicine & Heart Specialist',
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Experience',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 14),
+                                  ),
+                                  Text('8 Years'),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Text(
+                                    'Patients',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 14),
+                                  ),
+                                  Text('1.08k'),
+                                ],
+                              ),
+                              Image.asset(
+                                'assets/images/Doctor1.png',
+                                scale: 1,
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                   Container(
                     margin: const EdgeInsets.only(right: 12),
-                    width: size.width * 0.50,
+                    width: size.width * 0.55,
                     height: 200,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
@@ -83,6 +132,55 @@ class AvailableDoctors extends StatelessWidget {
                           spreadRadius: 0.0,
                         ), //BoxShadow
                       ],
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Dr.Consuelo L. White',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20),
+                          ),
+                          Text(
+                            'Medicine Specialist',
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Experience',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 14),
+                                  ),
+                                  Text('6 Years'),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Text(
+                                    'Patients',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 14),
+                                  ),
+                                  Text('95k'),
+                                ],
+                              ),
+                              Image.asset(
+                                'assets/images/Doctor2.png',
+                                scale: 1,
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   Container(
@@ -108,6 +206,55 @@ class AvailableDoctors extends StatelessWidget {
                           spreadRadius: 0.0,
                         ), //BoxShadow
                       ],
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Dr.Jose A. Breaux',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20),
+                          ),
+                          Text(
+                            'Medicine & Heart Specialist',
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Experience',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 14),
+                                  ),
+                                  Text('8 Years'),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Text(
+                                    'Patients',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 14),
+                                  ),
+                                  Text('1.08k'),
+                                ],
+                              ),
+                              Image.asset(
+                                'assets/images/Doctor1.png',
+                                scale: 1,
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],

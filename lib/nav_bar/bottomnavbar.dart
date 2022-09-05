@@ -3,10 +3,13 @@
 import 'package:flutter/material.dart';
 //import 'package:terna_telemedicine/components/profilepage/edit_profile.dart';
 import 'package:terna_telemedicine/screens/Blogs.dart';
+import 'package:terna_telemedicine/screens/Profile.dart';
 import 'package:terna_telemedicine/screens/appointment.dart';
 import 'package:terna_telemedicine/screens/homepage.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
+
+import '../components/appointment/appbar.dart';
 
 void main() => runApp(MaterialApp(
     builder: (context, child) {
@@ -29,11 +32,11 @@ class _ExampleState extends State<BottomNavBar> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.w600);
-  static const List<Widget> _widgetOptions = <Widget>[
+  static  List<Widget> _widgetOptions = <Widget>[
     HomePage(),
-    Appointment(),
+    AppointmentAppbar(),
     Blogs(),
-    //EditProfile(),
+    Profile(),
   ];
 
   @override

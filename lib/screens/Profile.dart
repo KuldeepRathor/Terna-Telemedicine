@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:terna_telemedicine/components/profilepage/appbar.dart';
+import 'package:terna_telemedicine/components/profilepage/edit_profile.dart';
 import 'package:terna_telemedicine/components/profilepage/tiles.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
@@ -13,7 +14,7 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  bool status = false;
+  bool status = true;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,11 @@ class _ProfileState extends State<Profile> {
           child: Column(
             children: [
               ProfileAppbar(),
-              NameSurname(),
+              InkWell(
+                onTap: () => Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => EditProfile())),
+                child: NameSurname(),
+              ),
               Tiles(
                 title: 'My Appointment',
                 icon: Icon(

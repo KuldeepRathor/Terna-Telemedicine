@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 import '../../screens/doctors.dart';
@@ -48,6 +50,34 @@ class Specialist extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                         color: const Color(0xff2A9B80),
                       ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: [
+                            Icon(
+                              Icons.heart_broken,
+                              size: 75,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              'Cardio Specialist',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              '20 Doctors',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
                     ),
                     Container(
                       margin: const EdgeInsets.only(right: 12),
@@ -56,6 +86,34 @@ class Specialist extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         color: const Color(0xff3B3ADB),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: [
+                            Icon(
+                              Icons.health_and_safety,
+                              size: 75,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              'Health Issue',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              '48 Doctors',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     Container(
@@ -66,6 +124,34 @@ class Specialist extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                         color: const Color(0xffEC7A31),
                       ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: [
+                            Icon(
+                              Icons.monitor_heart,
+                              size: 75,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              'Dental Care',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              '20 Doctors',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
                     ),
                     Container(
                       margin: const EdgeInsets.only(right: 12),
@@ -74,6 +160,34 @@ class Specialist extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         color: const Color(0xff7C43EA),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: [
+                            Icon(
+                              Icons.heart_broken,
+                              size: 75,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              'Physical Therapy',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              '17 Doctors',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ],
