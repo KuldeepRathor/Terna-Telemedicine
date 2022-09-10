@@ -61,13 +61,11 @@ class _DoctorCardState extends State<DoctorCard> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.builder(
-        itemBuilder: (context, index) {
-          return createcard('Dr. Jamie C. Davies',
-              'Medicine & Heart specialist', '11:45AM-4:00PM');
-        },
-      ),
+    return ListView.builder(
+      itemBuilder: (context, index) {
+        return createcard('Dr. Jamie C. Davies',
+            'Medicine & Heart specialist', '11:45AM-4:00PM');
+      },
     );
   }
 }

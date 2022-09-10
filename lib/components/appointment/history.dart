@@ -73,12 +73,10 @@ class _HISTORYState extends State<HISTORY> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.builder(
-        itemBuilder: (context, index) {
-          return historycard();
-        },
-      ),
+    return ListView.builder(
+      itemBuilder: (context, index) {
+        return historycard();
+      },
     );
   }
 }

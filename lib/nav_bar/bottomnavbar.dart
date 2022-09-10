@@ -34,7 +34,7 @@ class _ExampleState extends State<BottomNavBar> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.w600);
   static  List<Widget> _widgetOptions = <Widget>[
     HomePage(),
-    AppointmentAppbar(),
+    Appointment(),
     Blogs(),
     Profile(),
   ];

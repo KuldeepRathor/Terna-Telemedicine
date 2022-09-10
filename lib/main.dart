@@ -38,7 +38,6 @@ class MyApp extends StatelessWidget {
           builder: (context, snaphsot) {
             if (snaphsot.hasData) {
               print("the user is ${snaphsot.data}");
-
               return BottomNavBar();
             } else {
               return OnBoardingPage();

@@ -43,6 +43,7 @@ dependencies:
   flutter_switch: ^0.3.2
   firebase_auth: ^3.6.2
   firebase_core: ^1.20.0
+  firebase_storage: ^10.3.8
   pinput: ^2.2.11
   provider: ^6.0.3
   flutter_native_splash: ^2.2.0+1

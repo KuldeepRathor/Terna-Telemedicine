@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:terna_telemedicine/components/appointment/appbar.dart';
 import 'package:terna_telemedicine/components/profilepage/appbar.dart';
 import 'package:terna_telemedicine/components/profilepage/edit_profile.dart';
 import 'package:terna_telemedicine/components/profilepage/tiles.dart';
 import 'package:flutter_switch/flutter_switch.dart';
+import 'package:terna_telemedicine/screens/appointment.dart';
 
 import '../components/profilepage/name_surname.dart';
 
@@ -32,11 +34,14 @@ class _ProfileState extends State<Profile> {
                     MaterialPageRoute(builder: (context) => EditProfile())),
                 child: NameSurname(),
               ),
-              Tiles(
-                title: 'My Appointment',
-                icon: Icon(
-                  Icons.add_comment,
-                  size: 30,
+              InkWell(
+                onTap: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> Appointment())),
+                child: Tiles(
+                  title: 'My Appointment',
+                  icon: Icon(
+                    Icons.add_comment,
+                    size: 30,
+                  ),
                 ),
               ),
               Padding(

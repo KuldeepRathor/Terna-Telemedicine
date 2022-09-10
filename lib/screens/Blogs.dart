@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import '../components/blog.dart';
-
+import '../components/Blogpage/blog.dart';
 class Blogs extends StatelessWidget {
   const Blogs({Key? key}) : super(key: key);
 
@@ -8,27 +7,29 @@ class Blogs extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
+      body:
+      Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Text(
-                    'Blogs',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30,
-                    ),
-                  )
-                ],
-              ),
-              BLOG(),
+              Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: Text('Blog',style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                ),),
+              )
             ],
           ),
-        ),
+          Container(
+            child: BLOG(),
+          )
+        ],
+      )
       ),
     );
+
   }
 }
+

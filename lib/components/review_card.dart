@@ -37,11 +37,11 @@ class _User_ReviewState extends State<User_Review> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(child: ListView.builder(itemBuilder: (context, index) {
+    return ListView.builder(itemBuilder: (context, index) {
       return reviewcard(
           '02:45PM, August 10',
           'Use filler text where it helps your design process, but\n use real content if you as long as it do n’t distract your\n design process.',
           'Good Service Experiences');
-    }));
+    });
   }
 }

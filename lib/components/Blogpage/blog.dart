@@ -11,19 +11,18 @@ class _BLOGState extends State<BLOG> {
   @override
   Widget blogg(String header ,String content){
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.fromLTRB(8,5, 8, 8),
       child: Card(
         child: Column(
           children: [
-            Image.asset('assets/images/1.png'),
-            Positioned(
-              child: ListTile(title: Text(header),
-              subtitle: Text(content),),
-            )
+            Image.asset('assets/images/1.png',fit: BoxFit.cover,),
+            ListTile(title: Text(header),
+              subtitle: Text(content),)
           ],
         ),
       ),
     );
+
   }
 
   @override

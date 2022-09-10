@@ -20,7 +20,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
   FirebaseAuth auth = FirebaseAuth.instance;
 
-  String verificationIDReceived = "";
+    String verificationIDReceived = "";
+    static String verify="";
 
   bool otpCodeVisible = false;
 
@@ -270,7 +271,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                             print("verify otp function is called");
                             verifyCode();
                           }
-                          // verifyNumber();
+                          verifyNumber();
                         },
                         child: Text(otpCodeVisible ? "Login" : "Verify"),
                       ),
@@ -284,8 +285,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
       ),
     );
   }
-
-  void verifyNumber() {
+  //
+  void verifyNumber()  async{
     auth.verifyPhoneNumber(
       phoneNumber: "+91${phonecontroller.text.trim()}",
       timeout: const Duration(seconds: 60),

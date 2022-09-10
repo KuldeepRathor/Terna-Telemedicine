@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:line_icons/line_icon.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
-import 'package:terna_telemedicine/components/profilepage/popupimageeditor.dart';
 
 class EditProfile extends StatefulWidget {
-  EditProfile({Key? key}) : super(key: key);
+  // EditProfile(this.Imagepicker);//constructor
+  // final void Function(File pickedImage) Imagepicker;//function receive the image
 
   @override
   State<EditProfile> createState() => _EditProfileState();
@@ -21,6 +21,7 @@ class _EditProfileState extends State<EditProfile> {
     if (image == null) return;
     final imageTem = File(image.path);
     setState(() => this.image = imageTem);
+    //widget.Imagepicker(imageTem);//call the fuction
   }
   DateTime date = DateTime(2022, 9, 2);
 
@@ -127,7 +128,7 @@ class _EditProfileState extends State<EditProfile> {
                         children: [
                           TextFormField(
                             style: const TextStyle(),
-                            obscureText: true,
+                            //obscureText: true,
                             decoration: InputDecoration(
                               fillColor: Colors.white,
                               filled: true,
@@ -144,7 +145,7 @@ class _EditProfileState extends State<EditProfile> {
                           ),
                           TextFormField(
                             style: const TextStyle(),
-                            obscureText: true,
+                            //obscureText: true,
                             decoration: InputDecoration(
                               fillColor: Colors.white,
                               filled: true,
@@ -162,7 +163,7 @@ class _EditProfileState extends State<EditProfile> {
                           ),
                           TextFormField(
                             style: const TextStyle(),
-                            obscureText: true,
+                            //obscureText: true,
                             decoration: InputDecoration(
                               fillColor: Colors.white,
                               filled: true,

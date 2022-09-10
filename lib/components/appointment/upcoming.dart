@@ -75,12 +75,10 @@ class _UPCOMINGState extends State<UPCOMING> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.builder(
-        itemBuilder: (context, index) {
-          return upcomincard();
-        },
-      ),
+    return ListView.builder(
+      itemBuilder: (context, index) {
+        return upcomincard();
+      },
     );
   }
 }
