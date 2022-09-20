@@ -3,7 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:terna_telemedicine/screens/onboarding_screen.dart';
-
+import 'package:firebase_app_check/firebase_app_check.dart';
 import 'nav_bar/bottomnavbar.dart';
 
 //
@@ -19,6 +19,8 @@ void main() async {
   await Firebase.initializeApp(
       // options: DefaultFirebaseOptions.currentPlatform,
       );
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 

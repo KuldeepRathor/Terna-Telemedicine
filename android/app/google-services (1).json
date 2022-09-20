@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "689472702430",
+    "project_id": "telemedicine-user-ba797",
+    "storage_bucket": "telemedicine-user-ba797.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:689472702430:android:c813bbf826844f467d7f4f",
+        "android_client_info": {
+          "package_name": "com.example.terna_telemedicine_user"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "689472702430-7epc4ff1gm9ggsbopg6kkbft6sbb5m6n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnC-fyqI_V8GW63i1EJEDMwC-FuqdzNvo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "689472702430-7epc4ff1gm9ggsbopg6kkbft6sbb5m6n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

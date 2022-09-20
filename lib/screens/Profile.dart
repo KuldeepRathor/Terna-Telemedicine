@@ -59,7 +59,7 @@ class _ProfileState extends State<Profile> {
                       Padding(
                         padding: const EdgeInsets.only(left: 15.0),
                         child: Text(
-                          'Notification',
+                          'notificationpage',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,

@@ -1,10 +1,12 @@
 // ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icon.dart';
 import 'package:image_picker/image_picker.dart';
+
 import 'dart:io';
+
+import '../../screens/Reports.dart';
 
 class EditProfile extends StatefulWidget {
   // EditProfile(this.Imagepicker);//constructor
@@ -16,6 +18,14 @@ class EditProfile extends StatefulWidget {
 
 class _EditProfileState extends State<EditProfile> {
   File? image;
+  //File? result;
+  // Future pickfiles() async{
+  //   final files = await FilePicker.platform.pickFiles(allowMultiple: true);
+  //   if (files == null) return;
+  //   List<File> Files = files.paths.map((path) => File(path!)).toList();
+  //   setState((){});
+  // }
+
   Future pickImage(ImageSource source) async {
     final image = await ImagePicker().pickImage(source: source);
     if (image == null) return;
@@ -217,6 +227,15 @@ class _EditProfileState extends State<EditProfile> {
                               ),
                             ),
                           ),
+                          // ElevatedButton(
+                          //   onPressed: () async {
+                          //     final result =
+                          //     await FilePicker.platform.pickFiles(allowMultiple:true);
+                          //     if (result == null) return;
+                          //     openFiles(result.files);
+                          //   },
+                          //   child: const Text("pick file"),
+                          // ),
                         ],
                       ),
                     ),
@@ -227,6 +246,8 @@ class _EditProfileState extends State<EditProfile> {
           ),
         ),
       ),
+
     );
+
   }
 }
