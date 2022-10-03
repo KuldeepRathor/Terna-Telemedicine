@@ -1,6 +1,12 @@
 // ignore_for_file: prefer_const_constructors
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'dart:typed_data';
+
+import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:line_icons/line_icon.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -33,7 +39,16 @@ class _EditProfileState extends State<EditProfile> {
     setState(() => this.image = imageTem);
     //widget.Imagepicker(imageTem);//call the fuction
   }
+
   DateTime date = DateTime(2022, 9, 2);
+
+  // final _firestore = FirebaseFirestore.instance;
+
+  TextEditingController UsernameController = TextEditingController();
+  TextEditingController EmailController = TextEditingController();
+  TextEditingController BioController = TextEditingController();
+
+  final controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -62,62 +77,75 @@ class _EditProfileState extends State<EditProfile> {
                     Center(
                       child: Column(
                         children: [
-                          image!=null
-                              ? ClipOval(child: Image.file(image!,width:110,height: 110,fit: BoxFit.cover,))
-                              :CircleAvatar(
-                            radius: 55,
-                            backgroundImage: ExactAssetImage(
-                                'assets/images/placeholder.png'),
-                          ),
+                          image != null
+                              ? ClipOval(
+                                  child: Image.file(
+                                  image!,
+                                  width: 110,
+                                  height: 110,
+                                  fit: BoxFit.cover,
+                                ))
+                              : CircleAvatar(
+                                  radius: 55,
+                                  backgroundImage: ExactAssetImage(
+                                      'assets/images/placeholder.png'),
+                                ),
                           SizedBox(
                             height: size.height * 0.02,
                           ),
                           InkWell(
-                            onTap: () {showModalBottomSheet(
-                              context: context,
-                              builder: (context) {
-                                return  Container(
-                                  height: 150,
-                                  child: Column(
-                                    children: [
-                                      ElevatedButton.icon(
-                                          onPressed: () => pickImage(ImageSource.camera),
-                                          icon: Icon(Icons.camera_alt_outlined),
-                                          label: Text('Click a photo'),
-                                          style: ElevatedButton.styleFrom(
-                                            backgroundColor: Colors.blueAccent,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.circular(
-                                                20,
+                            onTap: () {
+                              showModalBottomSheet(
+                                context: context,
+                                builder: (context) {
+                                  return Container(
+                                    height: 150,
+                                    child: Column(
+                                      children: [
+                                        ElevatedButton.icon(
+                                            onPressed: () =>
+                                                pickImage(ImageSource.camera),
+                                            icon:
+                                                Icon(Icons.camera_alt_outlined),
+                                            label: Text('Click a photo'),
+                                            style: ElevatedButton.styleFrom(
+                                              backgroundColor:
+                                                  Colors.blueAccent,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                  20,
+                                                ),
                                               ),
-                                            ),
-                                          )),
-                                      ElevatedButton.icon(
-                                          onPressed: () => pickImage(ImageSource.gallery),
-                                          icon: Icon(Icons.file_copy_sharp),
-                                          label: Text('Gallery'),
-                                          style: ElevatedButton.styleFrom(
-                                            backgroundColor: Colors.blueAccent,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.circular(
-                                                20,
+                                            )),
+                                        ElevatedButton.icon(
+                                            onPressed: () =>
+                                                pickImage(ImageSource.gallery),
+                                            icon: Icon(Icons.file_copy_sharp),
+                                            label: Text('Gallery'),
+                                            style: ElevatedButton.styleFrom(
+                                              backgroundColor:
+                                                  Colors.blueAccent,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                  20,
+                                                ),
                                               ),
-                                            ),
-                                          )),
-                                      //ElevatedButton.icon(onPressed: () {}, icon: Icon(Icons.remove_circle_outline), label: Text('Remove profile photo'))
-                                    ],
-                                  ),
-                                );
-
-                              },
-                            );
+                                            )),
+                                        //ElevatedButton.icon(onPressed: () {}, icon: Icon(Icons.remove_circle_outline), label: Text('Remove profile photo'))
+                                      ],
+                                    ),
+                                  );
+                                },
+                              );
                             },
                             child: Text(
                               'Upload Profile Picture',
                               style: TextStyle(
-                                decoration: TextDecoration.underline,
-                                fontSize: 16,
-                              ),
+                                  decoration: TextDecoration.underline,
+                                  fontSize: 16,
+                                  color: Colors.blue),
                             ),
                           ),
                         ],
@@ -138,6 +166,7 @@ class _EditProfileState extends State<EditProfile> {
                         children: [
                           TextFormField(
                             style: const TextStyle(),
+                            controller: UsernameController,
                             //obscureText: true,
                             decoration: InputDecoration(
                               fillColor: Colors.white,
@@ -155,7 +184,8 @@ class _EditProfileState extends State<EditProfile> {
                           ),
                           TextFormField(
                             style: const TextStyle(),
-                            //obscureText: true,
+                            controller: EmailController,
+
                             decoration: InputDecoration(
                               fillColor: Colors.white,
                               filled: true,
@@ -173,7 +203,8 @@ class _EditProfileState extends State<EditProfile> {
                           ),
                           TextFormField(
                             style: const TextStyle(),
-                            //obscureText: true,
+                            controller: BioController,
+
                             decoration: InputDecoration(
                               fillColor: Colors.white,
                               filled: true,
@@ -200,7 +231,7 @@ class _EditProfileState extends State<EditProfile> {
                               padding: const EdgeInsets.all(8.0),
                               child: Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     '${date.year}/${date.month}/${date.day}',
@@ -245,9 +276,35 @@ class _EditProfileState extends State<EditProfile> {
             ],
           ),
         ),
+        floatingActionButton: FloatingActionButton(
+
+          onPressed: () {
+            final name = controller.text;
+            final email = controller.text;
+            final bio = controller.text;
+
+            createUser(name: name,email: email,bio:bio);
+          },
+          child: Icon(Icons.save),
+        ),
       ),
-
     );
-
   }
 }
+
+Future createUser({required String name, required String email, required String bio}) async {
+  // User auth = FirebaseAuth.instance.currentUser!;
+  final docUser = FirebaseFirestore.instance.collection('User').doc();
+
+
+  final json = {
+    'name': name,
+    'email': email,
+    'bio': bio,
+  };
+  // user.id = docUser.id;
+  // final json = user.toJson();
+  await docUser.set(json);
+}
+
+

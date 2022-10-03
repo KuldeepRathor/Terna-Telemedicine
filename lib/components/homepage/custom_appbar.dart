@@ -1,3 +1,6 @@
+// ignore_for_file: prefer_const_constructors, unnecessary_import
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppbar extends StatelessWidget {
@@ -21,21 +24,27 @@ class CustomAppbar extends StatelessWidget {
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                // ignore: prefer_const_literals_to_create_immutables
                 children: [
                   Text(
                     'Kuldeep Rathor',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 30,
+                      fontSize: 22,
                     ),
                   ),
                   Text('Find your suitable Doctor Here'),
                 ],),
             ],
           ),
-          Icon(
-            Icons.notifications,
-            size: 35,
+          InkWell(
+            onTap: (){
+
+            },
+            child: Icon(
+              Icons.notifications,
+              size: 35,
+            ),
           ),
         ],
       ),

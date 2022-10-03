@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+
+final Uri _meetlink = Uri.parse('https://google.com');
+
 
 class UPCOMING extends StatefulWidget {
   @override
@@ -54,9 +59,13 @@ class _UPCOMINGState extends State<UPCOMING> {
                 ],
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  _launchUrl;
+                  
+                },
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size(130, 30),
+                  primary: Colors.greenAccent,
                   // backgroundColor: Colors.green,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(
@@ -80,5 +89,10 @@ class _UPCOMINGState extends State<UPCOMING> {
         return upcomincard();
       },
     );
+  }
+}
+Future<void> _launchUrl() async {
+  if (!await launchUrl(_meetlink)) {
+    throw 'Could not launch $_meetlink';
   }
 }

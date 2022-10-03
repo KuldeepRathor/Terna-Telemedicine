@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, unused_import
+
 import 'package:flutter/material.dart';
 import 'package:terna_telemedicine/components/homepage/available_doctors.dart';
 import '../components/homepage/custom_appbar.dart';
@@ -22,7 +24,7 @@ class HomePage extends StatelessWidget {
                 height: 10,
               ),
               CustomAppbar(),
-              SearchBar(),
+              // SearchBar(),
               DoctorSlider(),
               Specialist(),
               AvailableDoctors()

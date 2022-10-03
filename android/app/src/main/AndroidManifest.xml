@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.terna_telemedicine">
+    package="com.example.terna_telemedicine_user_side">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="terna_telemedicine"

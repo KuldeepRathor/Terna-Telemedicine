@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class AvailableDoctors extends StatelessWidget {
@@ -43,7 +45,7 @@ class AvailableDoctors extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: const [
                         BoxShadow(
-                          color: Colors.black,
+                          color: Colors.grey,
                           offset: Offset(
                             5.0,
                             5.0,
@@ -79,6 +81,7 @@ class AvailableDoctors extends StatelessWidget {
                             children: [
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
+                                // ignore: prefer_const_literals_to_create_immutables
                                 children: [
                                   Text(
                                     'Experience',
@@ -117,7 +120,7 @@ class AvailableDoctors extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: const [
                         BoxShadow(
-                          color: Colors.black,
+                          color: Colors.grey,
                           offset: Offset(
                             5.0,
                             5.0,
@@ -153,6 +156,7 @@ class AvailableDoctors extends StatelessWidget {
                             children: [
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
+                                // ignore: prefer_const_literals_to_create_immutables
                                 children: [
                                   Text(
                                     'Experience',
@@ -191,7 +195,7 @@ class AvailableDoctors extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: const [
                         BoxShadow(
-                          color: Colors.black,
+                          color: Colors.grey,
                           offset: Offset(
                             5.0,
                             5.0,
@@ -227,6 +231,7 @@ class AvailableDoctors extends StatelessWidget {
                             children: [
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
+                                // ignore: prefer_const_literals_to_create_immutables
                                 children: [
                                   Text(
                                     'Experience',

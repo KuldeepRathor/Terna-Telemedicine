@@ -50,11 +50,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "657881979290-tabnfbvv82h8gedsfvdeebb5dociqspu.apps.googleusercontent.com",
+          "client_id": "657881979290-eenovgf0mquof0blripgoc2hu51pbbvp.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.terna_telemedicine_user_side",
-            "certificate_hash": "0801cd7bc39dd0887100b011b4b010c15bdfbd6c"
+            "certificate_hash": "4443717d2d490d159ad80b01413cb47e038e4c8f"
           }
         },
         {

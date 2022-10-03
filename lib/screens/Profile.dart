@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:terna_telemedicine/components/appointment/appbar.dart';
 import 'package:terna_telemedicine/components/profilepage/appbar.dart';
@@ -59,7 +61,7 @@ class _ProfileState extends State<Profile> {
                       Padding(
                         padding: const EdgeInsets.only(left: 15.0),
                         child: Text(
-                          'notificationpage',
+                          'Notifications',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,

@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, unused_local_variable
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +10,7 @@ class DoctorSlider extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return CarouselSlider(
-      options: CarouselOptions(height: 200.0),
+      options: CarouselOptions(height: 160.0),
       items: [1, 2, 3, 4].map((i) {
         return Builder(
           builder: (BuildContext context) {
